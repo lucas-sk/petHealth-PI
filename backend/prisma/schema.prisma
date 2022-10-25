@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  cpf      String @unique
+  password String
+  Pet      Pet[]
+
+  @@map("users")
+}
+
+model Pet {
+  id        String      @id @default(uuid())
+  name      String
+  years     Int
+  breed     String
+  weight    Float
+  color     String
+  userId    String
+  gender    Gender
+  user      User        @relation(fields: [userId], references: [id])
+  vetRecord vetRecord[]
+
+  @@map("pets")
+}
+
+model vetRecord {
+  id               String             @id @default(uuid())
+  prescriptionId   String
+  petId            String
+  pet              Pet                @relation(fields: [petId], references: [id])
+  Prescription     Prescription       @relation(fields: [prescriptionId], references: [id])
+  vaccineVetRecord vaccineVetRecord[]
+
+  @@map("vetRecords")
+}
+
+model Prescription {
+  id          String      @id @default(uuid())
+  medicamento String
+  vetId       String
+  vet         vet         @relation(fields: [vetId], references: [id])
+  vetRecord   vetRecord[]
+
+  @@map("prescriptions")
+}
+
+model vet {
+  id           String         @id @default(uuid())
+  name         String
+  crm          String
+  prescription Prescription[]
+
+  @@map("vets")
+}
+
+model vaccine {
+  id               String             @id @default(uuid())
+  name             String
+  data_aplicacao   DateTime
+  substancia       String
+  vaccineVetRecord vaccineVetRecord[]
+
+  @@map("vaccines")
+}
+
+model vaccineVetRecord {
+  id          String    @id @default(uuid())
+  vetRecordId String
+  vaccineId   String
+  vetRecord   vetRecord @relation(fields: [vetRecordId], references: [id])
+  vaccine     vaccine   @relation(fields: [vaccineId], references: [id])
+
+  @@map("vaccineVetRecords")
+}
+
+enum Gender {
+  masc
+  fem
+}
