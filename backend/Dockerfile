@@ -2,8 +2,8 @@ FROM node:slim
 
 USER node
 
-RUN mkdir -p /home/node/app
+RUN mkdir -p /home/node/app/backend
 
-WORKDIR /home/node/app
+WORKDIR /home/node/app/backend
 
 CMD [ ".docker/start.sh"]

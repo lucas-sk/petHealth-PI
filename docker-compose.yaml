@@ -1,16 +1,6 @@
 version: "3"
 
 services:
-  web:
-    build: frontend
-    container_name: web
-    volumes:
-      - .:/home/node/app/
-    depends_on:
-      - backend
-    ports:
-      - 8080:8080
-
   backend:
     build: backend
     container_name: backend
@@ -20,30 +10,37 @@ services:
       - db
     ports:
       - 3000:3000
+    restart: unless-stopped
 
-  # studio:
-  #   build: .
-  # container_name: studio
-  #   depends_on:
-  #     - postgres-db
-  #   ports:
-  #     - 5556:5556
-  #   command: yarn studio
-
-  nginx:
-    image: nginx
-    ports:
-      - 80:80
+  frontend:
+    build: frontend
+    container_name: frontend
+    volumes:
+      - .:/home/node/app/
     depends_on:
       - backend
-      - web
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+  # nginx:
+  #   image: nginx
+  #   ports:
+  #     - 80:80
+  #   depends_on:
+  #     - backend
+  #     - frontend
 
   db:
     image: postgres:15
     container_name: db
     environment:
       POSTGRES_PASSWORD: test
+      $POSTGRES_USER: postgres
+      $POSTGRES_DB: test
     ports:
       - 5432:5432
     volumes:
       - ./.docker/dbdata:/var/lib/postgresql/data
+      - ./.docker/postgres:/docker-entrypoint-initdb.d
+    restart: unless-stopped
