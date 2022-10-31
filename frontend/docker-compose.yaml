@@ -2,11 +2,9 @@ version: "3"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: web
     volumes:
       - .:/home/node/app/frontend
     ports:
-      - 8080:8080
+      - 4200:4200
