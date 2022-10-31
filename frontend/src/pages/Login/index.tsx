@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-import { ButtonLogin } from "./components/buttonLogin";
-import { InputLogin } from "./components/inputLogin";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-
-import Logo from '../../assets/img/logo.svg'
-
+import Logo from '../../assets/img/logo.svg';
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 
 export const Login = () => {
 
@@ -20,34 +18,32 @@ export const Login = () => {
           <form className="mt-8 space-y-6 bg-white text-center px-10 pb-20 rounded-lg">
             <img src={Logo} alt="" className="mx-auto w-auto pt-6" />
             <p className="text-xl">ACESSAR CONTA</p>
-            <InputLogin
+            <Input
               placeholder="LOGIN"
               type="email"
               value={email}
               onChange={newValue => setEmail(newValue)}
             />
 
-            <InputLogin
+            <Input
               placeholder="SENHA"
               type="password"
               value={password}
               onChange={newValue => setPassword(newValue)}
             />
 
-            <button type="button" className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">ACESSAR</button>
+            <Button>ACESSAR</Button>
 
             <div>
               <p>
                 Ainda não tem conta?
               </p>
+
               <Link to="/cadastro" className="text-sky-400/100">CADASTRE-SE</Link>
             </div>
           </form>
         </div>
       </div>
-
-
     </div >
-
   );
 }

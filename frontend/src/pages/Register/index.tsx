@@ -1,16 +1,15 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { InputRegister } from "./components/inputRegister";
+import { Link } from "react-router-dom";
 
-import Logo from '../../assets/img/logo.svg'
-
+import Logo from '../../assets/img/logo.svg';
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 
 export const Register = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
   const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
   const [cpf, setCpf] = useState("")
 
   return (
@@ -21,42 +20,35 @@ export const Register = () => {
           <form className="mt-8 space-y-6 bg-white text-center px-10 pb-5 rounded-lg">
             <img src={Logo} alt="" className="mx-auto w-auto pt-6" />
             <p className="text-xl">CRIE SUA CONTA</p>
-            <InputRegister
+            <Input
               placeholder="NOME COMPLETO"
               type="text"
               value={name}
               onChange={newValue => setName(newValue)}
             />
 
-            <InputRegister
+            <Input
               placeholder="EMAIL"
               type="email"
               value={email}
               onChange={newValue => setEmail(newValue)}
             />
 
-            <InputRegister
-              placeholder="TELEFONE"
-              type="number"
-              value={phone}
-              onChange={newValue => setPhone(newValue)}
-            />
-
-            <InputRegister
+            <Input
               placeholder="CPF"
-              type="number"
+              type="text"
               value={cpf}
               onChange={newValue => setCpf(newValue)}
             />
 
-            <InputRegister
+            <Input
               placeholder="SENHA"
               type="password"
               value={password}
               onChange={newValue => setPassword(newValue)}
             />
 
-            <button type="button" className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">ACESSAR</button>
+            <Button>ACESSAR</Button>
 
             <div>
               <p>
@@ -67,9 +59,6 @@ export const Register = () => {
           </form>
         </div>
       </div>
-
-
     </div >
-
   );
 }
