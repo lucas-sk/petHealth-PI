@@ -47,8 +47,4 @@ services:
     volumes:
       - ./.docker/dbdata:/var/lib/postgresql/data
       # - ./.docker/postgres:/docker-entrypoint-initdb.d
-<<<<<<< HEAD
     restart: unless-stopped
-=======
-    restart: unless-stopped
->>>>>>> main
