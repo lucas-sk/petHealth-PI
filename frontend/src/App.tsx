@@ -1,7 +1,6 @@
 import { FormEvent } from "react"
 import { http } from "./utils/http"
 
-import { Routes } from './routers/index'
 
 function App() {
 
@@ -49,8 +48,7 @@ function App() {
     //     </form>
     //   </div>
     // </div>
-
-    <Routes />
+    <h1>as</h1>
   )
 }
 
