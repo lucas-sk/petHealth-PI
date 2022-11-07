@@ -15,7 +15,7 @@ export const Register = () => {
   return (
     <div className="bg-cyan-500">
 
-      <div className="flex min-h-full items-center justify-center pb-20 sm:px-6 lg:px-8">
+      <div className="flex min-h-full items-center justify-center sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8 my-5 mx-5">
           <form className="mt-8 space-y-6 bg-white text-center px-10 pb-5 rounded-lg">
             <img src={Logo} alt="" className="mx-auto w-auto pt-6" />
@@ -48,7 +48,7 @@ export const Register = () => {
               onChange={newValue => setPassword(newValue)}
             />
 
-            <Button>ACESSAR</Button>
+            <Button className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CRIAR CONTA</Button>
 
             <div>
               <p>

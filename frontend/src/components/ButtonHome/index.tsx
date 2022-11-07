@@ -5,13 +5,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
 }
 
-export const Button = ({ asChild, ...props }: ButtonProps) => {
+export const ButtonHome = ({ asChild, ...props }: ButtonProps) => {
   const Component = asChild ? Slot : 'button'
 
-  return (
-
-    <Component  {...props}>
-      {props.children}
-    </Component>
-  )
+  // return (
+  //   <Component {...props}>
+  //     {props.children}
+  //   </Component>
+  // )
 }

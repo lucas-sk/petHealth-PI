@@ -32,7 +32,7 @@ export const Login = () => {
               onChange={newValue => setPassword(newValue)}
             />
 
-            <Button>ACESSAR</Button>
+            <Button className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">ACESSAR</Button>
 
             <div>
               <p>
