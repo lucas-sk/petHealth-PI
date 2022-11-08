@@ -15,7 +15,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export function Example() {
+export function Navbar() {
   return (
     <Disclosure as="nav" className="bg-white drop-shadow-md fixed top-0 left-0 right-0 z-10">
       {({ open }) => (
@@ -43,14 +43,14 @@ export function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 
-                <div className="hidden flex justify-end sm:ml-6 sm:block">
+                <div className="hidden justify-end sm:ml-6 sm:block">
                   <div className="flex space-x-">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'text-white' : 'text-black hover:bg-cyan-500 hover:text-white',
+                          item.current ? 'text-white' : 'text-black hover:text-cyan-500',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -73,7 +73,7 @@ export function Example() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'hover:bg-cyan-500 hover:text-white',
+                    item.current ? 'bg-gray-900 text-white' : 'hover:text-cyan-500',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
