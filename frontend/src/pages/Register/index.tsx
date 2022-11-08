@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Logo from '../../assets/img/logo.svg';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { http } from "../../utils/http";
 
 export const Register = () => {
 
@@ -12,12 +13,20 @@ export const Register = () => {
   const [name, setName] = useState("")
   const [cpf, setCpf] = useState("")
 
+  async function handleRegister(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    http.post('users', {
+      name, cpf, email, password
+    })
+  }
+
   return (
     <div className="bg-cyan-500">
 
-      <div className="flex min-h-full items-center justify-center sm:px-6 lg:px-8">
+      <div className="flex min min-h-screen items-center justify-center sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8 my-5 mx-5">
-          <form className="mt-8 space-y-6 bg-white text-center px-10 pb-5 rounded-lg">
+          <form className="mt-8 space-y-6 bg-white text-center px-10 pb-5 rounded-lg" onSubmit={handleRegister}>
             <img src={Logo} alt="" className="mx-auto w-auto pt-6" />
             <p className="text-xl">CRIE SUA CONTA</p>
             <Input
@@ -48,7 +57,7 @@ export const Register = () => {
               onChange={e => setPassword(e.target.value)}
             />
 
-            <Button className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CRIAR CONTA</Button>
+            <Button type="submit" className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CRIAR CONTA</Button>
 
             <div>
               <p>
