@@ -1,27 +1,33 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Logo from '../../assets/img/logo.svg';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { http } from "../../utils/http";
 
 export const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
-  console.log(email, password)
+  function handleLogin(e: FormEvent<HTMLFormElement>){
+    e.preventDefault()
+    http.post('/login', {
+      email,password
+    })
+  }
 
   return (
     <div className="bg-cyan-500">
 
       <div className="flex min-h-full items-center justify-center h-screen sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8 my-5 mx-5">
-          <form className="mt-8 space-y-6 bg-white text-center px-10 pb-20 rounded-lg">
+          <form className="mt-8 space-y-6 bg-white text-center px-10 pb-20 rounded-lg" onSubmit={handleLogin}>
             <img src={Logo} alt="" className="mx-auto w-auto pt-6" />
             <p className="text-xl">ACESSAR CONTA</p>
             <Input
-              placeholder="LOGIN"
+              placeholder="EMAIL"
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}

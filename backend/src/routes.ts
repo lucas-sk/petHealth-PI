@@ -7,7 +7,7 @@ const router = Router();
 // cria usuário
 router.post('/users', C.createUser.handle);
 // routa de login de usuario
-router.post('/users/login', C.signInUser.handle);
+router.post('/login', C.signInUser.handle);
 // lita todos os usuarios
 router.get('/users', C.findAllUsers.handle);
 // pega usuario pelo id
