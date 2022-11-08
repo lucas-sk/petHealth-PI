@@ -1,5 +1,5 @@
 import { Button } from "../../components/Button";
-import { Navbar } from "../../components/Navbar";
+import { Example } from "../../components/Navbar";
 
 import catDog from '../../assets/img/bg-dog-cat.svg';
 import dog from '../../assets/img/dog.svg';
@@ -10,8 +10,8 @@ import { Card } from "../../components/Card";
 export const Home = () => {
 
   return (
-    <div className="bg-cyan-500 h-screen">
-      <Navbar />
+    <div className="bg-cyan-500 h-screen pt-20">
+      <Example />
 
       <div className="container mx-auto grid justify-center md:flex md:justify-between ">
 

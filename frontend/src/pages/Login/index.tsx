@@ -10,6 +10,8 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
+  console.log(email, password)
+
   return (
     <div className="bg-cyan-500">
 
@@ -22,14 +24,14 @@ export const Login = () => {
               placeholder="LOGIN"
               type="email"
               value={email}
-              onChange={newValue => setEmail(newValue)}
+              onChange={e => setEmail(e.target.value)}
             />
 
             <Input
               placeholder="SENHA"
               type="password"
               value={password}
-              onChange={newValue => setPassword(newValue)}
+              onChange={e => setPassword(e.target.value)}
             />
 
             <Button className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">ACESSAR</Button>
@@ -39,7 +41,7 @@ export const Login = () => {
                 Ainda não tem conta?
               </p>
 
-              <Link to="/cadastro" className="text-sky-400/100">CADASTRE-SE</Link>
+              <Link to="/cadastro" className="text-sky-400/100 font-semibold">CADASTRE-SE</Link>
             </div>
           </form>
         </div>

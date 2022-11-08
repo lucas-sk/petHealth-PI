@@ -24,28 +24,28 @@ export const Register = () => {
               placeholder="NOME COMPLETO"
               type="text"
               value={name}
-              onChange={newValue => setName(newValue)}
+              onChange={e => setName(e.target.value)}
             />
 
             <Input
               placeholder="EMAIL"
               type="email"
               value={email}
-              onChange={newValue => setEmail(newValue)}
+              onChange={e => setEmail(e.target.value)}
             />
 
             <Input
               placeholder="CPF"
               type="text"
               value={cpf}
-              onChange={newValue => setCpf(newValue)}
+              onChange={e => setCpf(e.target.value)}
             />
 
             <Input
               placeholder="SENHA"
               type="password"
               value={password}
-              onChange={newValue => setPassword(newValue)}
+              onChange={e => setPassword(e.target.value)}
             />
 
             <Button className="group relative mx-auto flex justify-center rounded-full border border-transparent bg-cyan-500 py-4 px-20 text-sm font-medium text-white hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CRIAR CONTA</Button>
@@ -54,7 +54,7 @@ export const Register = () => {
               <p>
                 Já possui conta?
               </p>
-              <Link to="/entrar" className="text-sky-400/100">LOGAR</Link>
+              <Link to="/entrar" className="text-sky-400/100 font-semibold">LOGAR</Link>
             </div>
           </form>
         </div>
