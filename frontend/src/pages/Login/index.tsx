@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from '../../assets/img/logo.svg';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { http } from "../../utils/http";
+import { httpAuth } from "../../utils/http";
 
 export const Login = () => {
 
@@ -13,7 +13,7 @@ export const Login = () => {
 
   function handleLogin(e: FormEvent<HTMLFormElement>){
     e.preventDefault()
-    http.post('/login', {
+    httpAuth.post('/login', {
       email,password
     })
   }
