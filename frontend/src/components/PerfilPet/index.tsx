@@ -7,7 +7,7 @@ export const PerfilPet = (props: IPerfilPetProps) => {
 
   return (
 
-    <div className="text-2xl font-semibold cursor-pointer">
+    <div className="text-2xl mx-auto font-semibold text-center cursor-pointer md:mx-0">
       <img src={props.src} alt="" />
       <span>{props.text}</span>
     </div>
