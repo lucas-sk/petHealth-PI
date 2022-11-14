@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { PerfilPet } from "../../components/PerfilPet";
 
 import dog from '../../assets/img/perfil-dog.svg';
@@ -41,7 +43,7 @@ export const Userpet = () => {
               />
             </div>
 
-            <div className="flex gap-12 md:gap-28">
+            <div className="flex gap-12 mt-5 md:gap-28">
               <Datas
                 text="Espécie"
                 text2="Cachorro"
@@ -58,7 +60,7 @@ export const Userpet = () => {
               />
             </div>
 
-            <div className="flex gap-12 md:gap-28">
+            <div className="flex gap-12 mt-5 md:gap-28">
               <Datas
                 text="Raça"
                 text2="Pug"
@@ -79,10 +81,12 @@ export const Userpet = () => {
       </div>
 
       <div className="bg-white h-auto py-10">
-
+        <div className="bg-slate-300 flex justify-evenly py-5 rounded-2xl font-bold text-2xl text-center mx-44">
+          <Link to="/consultas">Consultas</Link>
+          <Link to="/prescricoes">Prescrições</Link>
+          <Link to="/vacinas">Vacinas</Link>
+        </div>
       </div>
-
-
     </div>
   );
 }
