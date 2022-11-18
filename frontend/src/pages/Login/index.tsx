@@ -11,10 +11,10 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
-  function handleLogin(e: FormEvent<HTMLFormElement>){
+  function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     httpAuth.post('/login', {
-      email,password
+      email, password
     })
   }
 

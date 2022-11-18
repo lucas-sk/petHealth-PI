@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-import { PerfilPet } from "../../components/PerfilPet";
+import { PerfilPet } from "../PerfilPet";
 
 import dog from '../../assets/img/perfil-dog.svg';
 
 import Calender from '../../assets/img/calender.svg'
-import { Navbar } from "../../components/Navbar";
-import { Datas } from "../../components/Datas";
+import { Navbar } from "../Navbar";
+import { Datas } from "../Datas";
 
 
 export const Userpet = () => {
