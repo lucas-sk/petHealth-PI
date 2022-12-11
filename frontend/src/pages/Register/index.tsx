@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Logo from '../../assets/img/logo.svg';
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { http } from "../../utils/http";
+// import { http } from "../../utils/http";
+import { httpAuth } from "../../utils/http"
 
 export const Register = () => {
 
@@ -13,12 +14,22 @@ export const Register = () => {
   const [name, setName] = useState("")
   const [cpf, setCpf] = useState("")
 
+  // async function handleRegister(e: FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+
+  //   http.post('users', {
+  //     name, cpf, email, password
+  //   })
+  // }
+
   async function handleRegister(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    http.post('users', {
+    await httpAuth.post('users', {
       name, cpf, email, password
     })
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
   }
 
   return (

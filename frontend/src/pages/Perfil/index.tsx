@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { PerfilPet } from "../../components/PerfilPet";
 
 import dog from '../../assets/img/perfil-dog.svg';
@@ -5,7 +7,7 @@ import cat from '../../assets/img/perfil-cat.svg';
 import lizard from '../../assets/img/perfil-lizard.svg';
 
 import Calender from '../../assets/img/calender.svg'
-import { Navbar } from "../../components/Navbar";
+import { NavbarPerfil } from "../../components/NavbarPerfil";
 
 
 export const Perfil = () => {
@@ -14,10 +16,10 @@ export const Perfil = () => {
 
     <div className="bg-cyan-500">
 
-      <Navbar />
+      <NavbarPerfil />
 
       <div className="container mx-auto grid mb-10">
-        <h1 className="text-3xl font-bold ml-5 mt-10">Meus Pets</h1>
+        <h1 className="text-3xl font-bold ml-5 mt-24">Meus Pets</h1>
 
         <div className="flex text-center gap-10 mt-10 mx-10 md:mx-0 md:gap-20">
           <PerfilPet
@@ -34,6 +36,10 @@ export const Perfil = () => {
             src={lizard}
             text="Jack"
           />
+        </div>
+
+        <div className="flex justify-end">
+          <Link to="" className="group relative w-64 flex justify-center rounded-full border border-transparent bg-black py-2  mt-8 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CADASTRAR NOVO PET</Link>
         </div>
       </div>
 

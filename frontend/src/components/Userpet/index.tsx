@@ -5,8 +5,8 @@ import { PerfilPet } from "../PerfilPet";
 import dog from '../../assets/img/perfil-dog.svg';
 
 import Calender from '../../assets/img/calender.svg'
-import { Navbar } from "../Navbar";
 import { Datas } from "../Datas";
+import { NavbarPet } from "../NavbarPet";
 
 
 export const Userpet = () => {
@@ -15,7 +15,7 @@ export const Userpet = () => {
 
     <div className="bg-cyan-500">
 
-      <Navbar />
+      <NavbarPet />
 
       <div className="container mx-auto grid mb-10">
 
