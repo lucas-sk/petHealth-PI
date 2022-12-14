@@ -24,6 +24,20 @@ router.get('/users/:userId/pets', C.findAllPets.handle);
 router.get('/users/:userId/pet/:petId', C.findPet.handle);
 //atualiza o pet pelo ID
 router.put('/pets/:id', C.updatePet.handle);
+// create vacina pet
+router.post('/pets/:petid/vaccines', C.createVaccine.handle)
+// create consult pet
+router.post('/pets/:petid/consults', C.createConsult.handle)
+// create prescription pet
+router.post('/pets/:petid/prescriptions', C.createPrescription.handle)
+// List vacina pet
+router.get('/pets/:id/vaccines', C.listVaccines.handle)
+// List consult pet
+router.get('/pets/:id/consults', C.listConsults.handle)
+// List prescription pet
+router.get('/pets/:id/prescriptions', C.listPrescriptions.handle)
+
+
 //-----------------------------------------------------------------
 // ROUTE DEFAULT TESTE
 router.get('/', (req, res) => {

@@ -19,68 +19,54 @@ model User {
 }
 
 model Pet {
-  id        String      @id @default(uuid())
-  name      String
-  years     Int
-  breed     String
-  weight    Float
-  color     String
-  userId    String
-  gender    Gender
-  user      User        @relation(fields: [userId], references: [id])
-  vetRecord vetRecord[]
+  id           String         @id @default(uuid())
+  name         String
+  years        Int
+  breed        String
+  weight       Float
+  color        String
+  userId       String
+  gender       Gender
+  user         User           @relation(fields: [userId], references: [id])
+  Vaccine      Vaccine[]
+  Consult      Consult[]
+  Prescription Prescription[]
 
   @@map("pets")
 }
 
-model vetRecord {
-  id               String             @id @default(uuid())
-  prescriptionId   String
-  petId            String
-  pet              Pet                @relation(fields: [petId], references: [id])
-  Prescription     Prescription       @relation(fields: [prescriptionId], references: [id])
-  vaccineVetRecord vaccineVetRecord[]
-
-  @@map("vetRecords")
-}
-
 model Prescription {
-  id          String      @id @default(uuid())
-  medicamento String
-  vetId       String
-  vet         vet         @relation(fields: [vetId], references: [id])
-  vetRecord   vetRecord[]
+  id               String @id @default(uuid())
+  medicamento      String
+  times            String
+  prescriptionDate String
+  petid            String
+  pet              Pet    @relation(fields: [petid], references: [id])
 
   @@map("prescriptions")
 }
 
-model vet {
-  id           String         @id @default(uuid())
-  name         String
-  crm          String
-  prescription Prescription[]
-
-  @@map("vets")
-}
-
-model vaccine {
-  id               String             @id @default(uuid())
+model Vaccine {
+  id               String @id @default(uuid())
   name             String
-  data_aplicacao   DateTime
-  substancia       String
-  vaccineVetRecord vaccineVetRecord[]
+  vaccineDate      String
+  vaccineDateStart String
+  petid            String
+  pet              Pet    @relation(fields: [petid], references: [id])
 
   @@map("vaccines")
 }
 
-model vaccineVetRecord {
-  id          String    @id @default(uuid())
-  vetRecordId String
-  vaccineId   String
-  vetRecord   vetRecord @relation(fields: [vetRecordId], references: [id])
-  vaccine     vaccine   @relation(fields: [vaccineId], references: [id])
+model Consult {
+  id           String @id @default(uuid())
+  consultsDate String
+  diagnosis    String
+  treatment    String
+  comments     String
+  petid        String
+  pet          Pet    @relation(fields: [petid], references: [id])
 
-  @@map("vaccineVetRecords")
+  @@map("Consults")
 }
 
 enum Gender {
