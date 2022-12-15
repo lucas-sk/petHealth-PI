@@ -7,9 +7,13 @@ import dog from '../../assets/img/perfil-dog.svg';
 import Calender from '../../assets/img/calender.svg'
 import { Datas } from "../Datas";
 import { NavbarPet } from "../NavbarPet";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 
 export const Userpet = () => {
+
+  const auth = useContext(AuthContext);
 
   return (
 
@@ -22,36 +26,27 @@ export const Userpet = () => {
         <div className="grid mt-28 md:flex">
           <PerfilPet
             src={dog}
-            text="Link"
+            text={auth.user?.namePet}
           />
 
           <div className="ml-6 mt-5 md:ml-10 md:mx-0 md:mt-0">
             <div className="flex gap-12 md:gap-28">
               <Datas
                 text="Tutor"
-                text2="Beatriz"
+                text2={auth.user?.name}
               />
 
               <Datas
-                text="Nascimento"
-                text2="19/12/21"
-              />
-
-              <Datas
-                text="Temperamento"
-                text2="Dócil"
+                text="Idade"
+                text2={auth.user?.yearsPet}
               />
             </div>
 
             <div className="flex gap-12 mt-5 md:gap-28">
-              <Datas
-                text="Espécie"
-                text2="Cachorro"
-              />
 
               <Datas
                 text="Sexo"
-                text2="Macho"
+                text2={auth.user?.genderPet}
               />
 
               <Datas
@@ -63,12 +58,12 @@ export const Userpet = () => {
             <div className="flex gap-12 mt-5 md:gap-28">
               <Datas
                 text="Raça"
-                text2="Pug"
+                text2={auth.user?.breedPet}
               />
 
               <Datas
                 text="Peso"
-                text2="7 kg"
+                text2={auth.user?.weightPet}
               />
             </div>
           </div>

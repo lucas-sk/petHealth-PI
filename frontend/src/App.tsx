@@ -1,4 +1,4 @@
-import { FormEvent } from "react"
+import { FormEvent, useContext } from "react"
 import { http } from "./utils/http"
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -10,6 +10,13 @@ import { Queries } from './pages/Queries'
 import { Register } from './pages/Register'
 import { Vaccines } from './pages/Vaccines'
 import { FormQueries } from "./pages/FormQueries"
+
+
+import { RequireAuth } from "./contexts/Auth/RequireAuth"
+import { AuthProvider } from "./contexts/Auth/AuthProvider"
+import { FormPrescription } from "./pages/FormPrescription"
+import { RegisterPet } from "./pages/RegisterPet"
+import { FormVaccines } from "./pages/FormVaccines"
 
 
 
@@ -34,7 +41,8 @@ function App() {
   // }
 
   // vai pegar o usuario caso exista
-  const logged = localStorage.getItem('@user');
+  // const logged = localStorage.getItem('@user');
+
 
   return (
     // <div className="App">
@@ -69,15 +77,20 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-        {logged ? <Route path="/entrar" element={<Login />} /> : <Route path="/perfil" element={<Perfil />} />}
+        <Route path="/entrar" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
-        <Route path="/consultas" element={<Queries />} />
-        <Route path="/prescricoes" element={<Pescription />} />
-        <Route path="/vacinas" element={<Vaccines />} />
-        <Route path="/formulario-consultas" element={<FormQueries />} />
+        <Route path="/perfil" element={<RequireAuth><Perfil /></RequireAuth>} />
+        <Route path="/consultas" element={<RequireAuth><Queries /></RequireAuth>} />
+        <Route path="/prescricoes" element={<RequireAuth><Pescription /></RequireAuth>} />
+        <Route path="/vacinas" element={<RequireAuth><Vaccines /></RequireAuth>} />
+        <Route path="/formulario-consultas" element={<RequireAuth><FormQueries /></RequireAuth>} />
+        <Route path="/formulario-prescricao" element={<RequireAuth><FormPrescription /></RequireAuth>} />
+        <Route path="/cadastro-pet" element={<RequireAuth><RegisterPet /></RequireAuth>} />
+        <Route path="/formulario-vacinas" element={<RequireAuth><FormVaccines /></RequireAuth>} />
+
 
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 };
 

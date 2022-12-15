@@ -1,21 +1,36 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 
 import Logo from '../../assets/img/logo.svg';
+import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
-const navigation = [
-  { name: 'EDITAR PERFIL', href: '/cadastro', current: false },
-  { name: 'SAIR', href: '', current: false },
-]
+
+
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
 export function NavbarPerfil() {
+
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+
+    await auth.signout();
+    navigate('/entrar')
+  }
+
+  const navigation = [
+    { name: 'EDITAR PERFIL' /*href: '/cadastro'*/, current: false },
+    { name: 'SAIR', href: '/entrar', current: false },
+  ]
+
   return (
     <Disclosure as="nav" className="bg-white drop-shadow-md fixed top-0 left-0 right-0 z-10">
       {({ open }) => (
@@ -47,8 +62,6 @@ export function NavbarPerfil() {
                   <div className="flex space-x-">
                     {navigation.map((item) => (
                       <a
-                        key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current ? 'text-white' : 'text-black hover:text-cyan-500',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -71,7 +84,6 @@ export function NavbarPerfil() {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'hover:text-cyan-500',
                     'block px-3 py-2 rounded-md text-base font-medium'

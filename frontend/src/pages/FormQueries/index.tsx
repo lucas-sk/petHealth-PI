@@ -2,6 +2,7 @@ import { Input } from "../../components/Input";
 import { Userpet } from "../../components/Userpet";
 import Stethoscope from "../../assets/img/stethoscope.svg"
 import { Textarea } from "../../components/Textarea";
+import { Button } from "../../components/Button";
 
 
 export const FormQueries = () => {
@@ -36,6 +37,9 @@ export const FormQueries = () => {
               cols={40}
               rows={5}
             />
+
+            < Button type="submit" className="group relative w-32 flex justify-center rounded-full border border-transparent bg-black py-2 mt-8 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Salvar</Button>
+            < Button className="group relative w-32 flex justify-center rounded-full border border-transparent bg-black py-2 mt-8 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cancelar</Button>
 
           </div>
 

@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Logo from '../../assets/img/logo.svg';
 import { Button } from "../../components/Button";
@@ -8,6 +8,8 @@ import { Input } from "../../components/Input";
 import { httpAuth } from "../../utils/http"
 
 export const Register = () => {
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
@@ -30,6 +32,8 @@ export const Register = () => {
     })
       .then(response => console.log(response))
       .catch(error => console.log(error))
+
+    navigate('/entrar')
   }
 
   return (

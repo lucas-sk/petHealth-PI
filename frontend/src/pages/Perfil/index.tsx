@@ -8,9 +8,13 @@ import lizard from '../../assets/img/perfil-lizard.svg';
 
 import Calender from '../../assets/img/calender.svg'
 import { NavbarPerfil } from "../../components/NavbarPerfil";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 
 export const Perfil = () => {
+
+  const auth = useContext(AuthContext);
 
   return (
 
@@ -22,24 +26,16 @@ export const Perfil = () => {
         <h1 className="text-3xl font-bold ml-5 mt-24">Meus Pets</h1>
 
         <div className="flex text-center gap-10 mt-10 mx-10 md:mx-0 md:gap-20">
-          <PerfilPet
-            src={dog}
-            text="Link"
-          />
-
-          <PerfilPet
-            src={cat}
-            text="Cueco"
-          />
-
-          <PerfilPet
-            src={lizard}
-            text="Jack"
-          />
+          <Link to="/consultas">
+            <PerfilPet
+              src={dog}
+              text={auth.user?.namePet}
+            />
+          </Link>
         </div>
 
         <div className="flex justify-end">
-          <Link to="" className="group relative w-64 flex justify-center rounded-full border border-transparent bg-black py-2  mt-8 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CADASTRAR NOVO PET</Link>
+          <Link to="/cadastro-pet" className="group relative w-64 flex justify-center rounded-full border border-transparent bg-black py-2  mt-8 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">CADASTRAR NOVO PET</Link>
         </div>
       </div>
 
